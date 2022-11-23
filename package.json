@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "build": "browserify src/app.js -o public/js/bundle.js"
+        "build": "npm i -g browserify && browserify src/app.js -o public/js/bundle.js"
     },
     "dependencies": {
     "dom-to-image": "^2.6.0",
