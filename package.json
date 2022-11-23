@@ -1,5 +1,8 @@
 {
-  "dependencies": {
+    "scripts": {
+        "build": "browserify src/app.js -o public/js/bundle.js"
+    },
+    "dependencies": {
     "dom-to-image": "^2.6.0",
     "file-saver": "^2.0.5"
   }
