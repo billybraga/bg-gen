@@ -3,11 +3,15 @@ const { saveAs } = require('file-saver')
 
 const root = document.querySelector(':root');
 const bg = document.getElementById('bg');
+const content = document.getElementById('content');
 const downloadBtn = document.getElementById('download-btn');
 
 const color1Value = document.getElementById('color1-value');
 
-root.style.setProperty('--bg-height-ratio', window.innerHeight / 2400);
+const styleVars = getComputedStyle(root);
+const bgHeightPx = styleVars.getPropertyValue('--bg-height');
+const bgHeight = parseInt(bgHeightPx);
+root.style.setProperty('--bg-height-ratio', content.clientHeight / bgHeight);
 
 color1Value.onchange = createSetColor('color1');
 
