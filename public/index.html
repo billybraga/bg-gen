@@ -1,0 +1,112 @@
+<html lang="en">
+<head>
+    <title>Phone Background Maker</title>
+    <style>
+        :root {
+            --bg-height: 2400px;
+            --bg-width: 1080px;
+            --bg-ratio: var(--bg-width) / var(--bg-height);
+            --bg-height-ratio: 0.3;
+            --bg-color-main: #17dddd;
+            --bg-color1: #41b0ca;
+            --bg-color2: #4c95c6;
+            --bg-color3: #44799d;
+        }
+
+        html {
+            background-color: white;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        #content {
+            display: flex;
+        }
+
+        #bg-view-wrapper {
+            height: 100vh;
+            calc(var(--bg-ratio) * 100) vh;
+        }
+
+        #bg-view {
+            transform: scale(var(--bg-height-ratio));
+            transform-origin: top left;
+        }
+
+        #bg {
+            --bg-width: 1080px;
+            height: 2400px;
+            width: var(--bg-width);
+            /*margin: 0 calc(50vw - (var(--bg-width)) / 2) 0 calc(50vw - (var(--bg-width)) / 2);*/
+            background-color: var(--bg-color-main);
+            position: relative;
+        }
+
+        #color1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--bg-color1);
+            clip-path: polygon(0% 18%, 70% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        #color2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--bg-color2);
+            clip-path: polygon(0% 70%, 100% 17%, 100% 100%, 0% 100%);
+        }
+
+        #color3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--bg-color3);
+            clip-path: polygon(0% 65%, 68% 100%, 0% 100%);
+        }
+
+        #editor {
+            position: absolute;
+            right: 50px;
+        }
+
+        fieldset {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <div id="bg-view-wrapper">
+        <div id="bg-view">
+            <div id="bg">
+                <div id="color1"></div>
+                <div id="color2"></div>
+                <div id="color3"></div>
+            </div>
+        </div>
+    </div>
+    <div id="editor">
+        <fieldset>
+            <label>
+                Color 1
+                <input id="color1-value"/>
+            </label>
+        </fieldset>
+        <fieldset>
+            <button id="download-btn">Download</button>
+        </fieldset>
+    </div>
+</div>
+<script src="js/bundle.js"></script>
+</body>
+</html>
